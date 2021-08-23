@@ -12,191 +12,199 @@ const delayMS = 1000 //sometimes xDAI needs a 6000ms break lol 😅
 const main = async () => {
 
   // ADDRESS TO MINT TO:
-  const toAddress = "0x97930Ac07F388f762bfce2c9DB48D01CbFEdFFfd"
+  const toAddress = "0x24bCC030E93A5F9f1bF27b5b2EFCA8D75d091b7D"
 
   console.log("\n\n 🎫 Minting to "+toAddress+"...\n");
 
   const { deployer } = await getNamedAccounts();
   const yourCollectible = await ethers.getContract("YourCollectible", deployer);
 
-  const buffalo = {
-    "description": "It's actually a bison?",
-    "external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
-    "image": "https://austingriffith.com/images/paintings/buffalo.jpg",
-    "name": "Buffalo",
-    "attributes": [
-       {
-         "trait_type": "BackgroundColor",
-         "value": "green"
-       },
-       {
-         "trait_type": "Eyes",
-         "value": "googly"
-       },
-       {
-         "trait_type": "Stamina",
-         "value": 42
-       }
-    ]
+  const preface = {
+    "description": "Navigating Information Infrastructure introduces the Zine collection by outlining decentralised communities and infrastructure as a cartographic practice of simultaneously mapping and navigating a space that is constantly developing. By Kelsie Nabben and Michael Zargham.",
+    "external_url": "http://ipfs.io/ipfs/QmcC4xUCPLEeT1KzX3hFXameqSXW2MYx7zK97j7GWj9iQc",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmfWz1DtbS5a6BB9sNee6W84fieNktKFhKKwLzGV2VYSzj",
+    "name": "00. Navigating Information Infrastructure."
   }
-  console.log("Uploading buffalo...")
-  const uploaded = await ipfs.add(JSON.stringify(buffalo))
+  console.log("Uploading preface...")
+  const uploaded = await ipfs.add(JSON.stringify(preface))
 
-  console.log("Minting buffalo with IPFS hash ("+uploaded.path+")")
+  console.log("Minting preface with IPFS hash ("+uploaded.path+")")
   await yourCollectible.mintItem(toAddress,uploaded.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
 
 
-  const zebra = {
-    "description": "What is it so worried about?",
-    "external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
-    "image": "https://austingriffith.com/images/paintings/zebra.jpg",
-    "name": "Zebra",
-    "attributes": [
-       {
-         "trait_type": "BackgroundColor",
-         "value": "blue"
-       },
-       {
-         "trait_type": "Eyes",
-         "value": "googly"
-       },
-       {
-         "trait_type": "Stamina",
-         "value": 38
-       }
-    ]
+  const techno = {
+    "description": "Techno-reflexivity presents a creative methodology for software developer un-bias, by employing the ethnographic technique of reflexivity. By Kelsie Nabben and Michael Zargham.",
+    "external_url": "http://ipfs.io/ipfs/QmcC4xUCPLEeT1KzX3hFXameqSXW2MYx7zK97j7GWj9iQc",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmW5VwKVKpwhi3V9Mhz6eXH54LW4zDT7MKJyd5hw8Sj8A2",
+    "name": "I. Techno-reflexivity "
   }
-  console.log("Uploading zebra...")
-  const uploadedzebra = await ipfs.add(JSON.stringify(zebra))
+  console.log("Uploading techno...")
+  const uploadedtechno = await ipfs.add(JSON.stringify(techno))
 
-  console.log("Minting zebra with IPFS hash ("+uploadedzebra.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedzebra.path,{gasLimit:10000000})
+  console.log("Minting techno with IPFS hash ("+uploadedtechno.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedtechno.path,{gasLimit:10000000})
 
 
 
   await sleep(delayMS)
 
 
-  const rhino = {
-    "description": "What a horn!",
-    "external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
-    "image": "https://austingriffith.com/images/paintings/rhino.jpg",
-    "name": "Rhino",
-    "attributes": [
-       {
-         "trait_type": "BackgroundColor",
-         "value": "pink"
-       },
-       {
-         "trait_type": "Eyes",
-         "value": "googly"
-       },
-       {
-         "trait_type": "Stamina",
-         "value": 22
-       }
-    ]
+  const algorithms = {
+    "description": "Algorithms as Policy investigates how algorithm design can be reconceptualized as policy-making to create safer digital infrastructures. By Michael Zargham and Kelsie Nabben.",
+    "external_url": "http://ipfs.io/ipfs/Qmaq2ZkL3o8fdNKgVAgQ7voiVqbMf72GZ2mAfWeCLWMsT1",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmervY1cScWQ5uUTs9YS2Fn3fpF7ainiNzYXbjLbNQmCxB",
+    "name": "II. Algorithms as Policy"
   }
-  console.log("Uploading rhino...")
-  const uploadedrhino = await ipfs.add(JSON.stringify(rhino))
+  console.log("Uploading algorithms...")
+  const uploadedalgorithms = await ipfs.add(JSON.stringify(algorithms))
 
-  console.log("Minting rhino with IPFS hash ("+uploadedrhino.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedrhino.path,{gasLimit:10000000})
+  console.log("Minting algorithms with IPFS hash ("+uploadedalgorithms.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedalgorithms.path,{gasLimit:10000000})
 
 
 
   await sleep(delayMS)
 
 
-  const fish = {
-    "description": "Is that an underbyte?",
-    "external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
-    "image": "https://austingriffith.com/images/paintings/fish.jpg",
-    "name": "Fish",
-    "attributes": [
-       {
-         "trait_type": "BackgroundColor",
-         "value": "blue"
-       },
-       {
-         "trait_type": "Eyes",
-         "value": "googly"
-       },
-       {
-         "trait_type": "Stamina",
-         "value": 15
-       }
-    ]
+  const ethics = {
+    "description": "Engineering Ethics inspects ethics as the core mission and motivation of participation in Web3 and token engineering commons. By Michael Zargham. ",
+    "external_url": "http://ipfs.io/ipfs/QmZXBZGiVpSTLk1HE1ZtcuMN6hxQT1krZsfqazWatwpdhA",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmamUPwxWobGJngyEVCUYznCo7bhsaH1zT7DgJX78aKv9X",
+    "name": "III. Engineering Ethics",
   }
-  console.log("Uploading fish...")
-  const uploadedfish = await ipfs.add(JSON.stringify(fish))
+  console.log("Uploading ethics...")
+  const uploadedethics = await ipfs.add(JSON.stringify(ethics))
 
-  console.log("Minting fish with IPFS hash ("+uploadedfish.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedfish.path,{gasLimit:10000000})
+  console.log("Minting ethics with IPFS hash ("+uploadedethics.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedethics.path,{gasLimit:10000000})
 
 
 
   await sleep(delayMS)
 
 
-  const flamingo = {
-    "description": "So delicate.",
-    "external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
-    "image": "https://austingriffith.com/images/paintings/flamingo.jpg",
-    "name": "Flamingo",
-    "attributes": [
-       {
-         "trait_type": "BackgroundColor",
-         "value": "black"
-       },
-       {
-         "trait_type": "Eyes",
-         "value": "googly"
-       },
-       {
-         "trait_type": "Stamina",
-         "value": 6
-       }
-    ]
+  const decentralisedInfo = {
+    "description": "An Ethnography of Decentralised Information Infrastructure is a historical investigation of cypherpunk nomenclature to create a genealogy and categorise the unique attributes of decentralised technologies. By Kelsie Nabben.",
+    "external_url": "http://ipfs.io/ipfs/QmaNc4HLFEWTeujAmXGxyPWLcvHVRG56kzDRuG8ur24GDX",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmUqn48onXHoPEcoGAXxk3cbsQjdWbnqPCVPiedpkSWpKs",
+    "name": "IV. Decentralised Information Infrastructure",
   }
-  console.log("Uploading flamingo...")
-  const uploadedflamingo = await ipfs.add(JSON.stringify(flamingo))
+  console.log("Uploading decentralisedInfo...")
+  const uploadeddecentralisedInfo = await ipfs.add(JSON.stringify(decentralisedInfo))
 
-  console.log("Minting flamingo with IPFS hash ("+uploadedflamingo.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedflamingo.path,{gasLimit:10000000})
-
-
+  console.log("Minting decentralisedInfo with IPFS hash ("+uploadeddecentralisedInfo.path+")")
+  await yourCollectible.mintItem(toAddress,uploadeddecentralisedInfo.path,{gasLimit:10000000})
 
 
 
-  const godzilla = {
-    "description": "Raaaar!",
-    "external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
-    "image": "https://austingriffith.com/images/paintings/godzilla.jpg",
-    "name": "Godzilla",
-    "attributes": [
-       {
-         "trait_type": "BackgroundColor",
-         "value": "orange"
-       },
-       {
-         "trait_type": "Eyes",
-         "value": "googly"
-       },
-       {
-         "trait_type": "Stamina",
-         "value": 99
-       }
-    ]
+  await sleep(delayMS)
+
+  const adhoc = {
+    "description": "The Possibilities of '“Ad Hoc” Decentralised Digital Infrastructure' investigates decentralised technologies as enablers of new types of peer-to-peer networks with novel implications for how people coordinate. By Kelsie Nabben.!",
+    "external_url": "http://ipfs.io/ipfs/QmPXEoCWDm4Uci2tad8LX2cy4Vi8t9GGXcFrEDNoC1vtTq",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmXososJejizo8dPcwCNZNbJ9JpwouW6vY5RqrnxyYmmAD",
+    "name": "V. “Ad Hoc” Decentralised Digital Infrastructure",
   }
-  console.log("Uploading godzilla...")
-  const uploadedgodzilla = await ipfs.add(JSON.stringify(godzilla))
+  console.log("Uploading adhoc...")
+  const uploadedadhoc = await ipfs.add(JSON.stringify(adhoc))
 
-  console.log("Minting godzilla with IPFS hash ("+uploadedgodzilla.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedgodzilla.path,{gasLimit:10000000})
+  console.log("Minting adhoc with IPFS hash ("+uploadedadhoc.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedadhoc.path,{gasLimit:10000000})
+
+
+  await sleep(delayMS)
+
+  const games = {
+    "description": "Network Formation Games is a study of coordination games in algorthmic systems.  By Michael Zargham.",
+    "external_url": "http://ipfs.io/ipfs/QmeD68oUZgzvcsPjQ7Yn9nZR2SgcMRUgafh6MBn1UJqkmo",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmP3KW2NpixaPvmACZTwuknERckCwqjoL1bPqxYzDFQgaE",
+    "name": "VI. Network Formation Games",
+  }
+  console.log("Uploading games...")
+  const uploadedgames = await ipfs.add(JSON.stringify(games))
+
+  console.log("Minting games with IPFS hash ("+uploadedgames.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedgames.path,{gasLimit:10000000})
+
+
+  await sleep(delayMS)
+
+  const daos = {
+    "description": "Exploring DAOs as a New Kind of Institution with the Metagovernance project and Commons Stack. By Michael Zargham, Primavera de Fillipi, Joshua Tan, and Jeff Emmett in 2020.",
+    "external_url": "http://ipfs.io/ipfs/QmYvZSggq63QekAoJB68Xhup5iZvQFwW7qkhiR9WpZftVH",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmcFYiB2t5bX81dy9dLg2XjtNSYEoB94S5pD43sPSPb7R1",
+    "name": "VII. Exploring DAOs",
+  }
+  console.log("Uploading daos...")
+  const uploadeddaos = await ipfs.add(JSON.stringify(daos))
+
+  console.log("Minting daos with IPFS hash ("+uploadeddaos.path+")")
+  await yourCollectible.mintItem(toAddress,uploadeddaos.path,{gasLimit:10000000})
+
+
+  await sleep(delayMS)
+
+  const ostrom = {
+    "description": "Automating Ostrom for Effective DAO Management provides comparatively early contributions on decentralised technologies as 'commons' and designing cyber-physical commons to be ‘Ostrom Compliant’ by applying Ostrom principles. By Jeff Emmett and Michael Zargham in 2019.",
+    "external_url": "http://ipfs.io/ipfs/QmTEVh19FKmpSk3hcmiWZbXxE657Ht1VBR2brTNSBzR1im",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmWV328ADJTUiktdeU2yfQp2qeVayHhTHRR1msTCgeDzqk",
+    "name": "VIII. Automating Ostrom",
+  }
+  console.log("Uploading ostrom...")
+  const uploadedostrom = await ipfs.add(JSON.stringify(ostrom))
+
+  console.log("Minting ostrom with IPFS hash ("+uploadedostrom.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedostrom.path,{gasLimit:10000000})
+
+
+  await sleep(delayMS)
+
+  const cad = {
+    "description": "Towards Computer-Aided Governance applies computer-aided governance approaches to a case study on Gitcoin grants. By Michael Zargham, Danilo Lessa Bernardinelli, and Jeff Emmett.",
+    "external_url": "http://ipfs.io/ipfs/QmZP3rSNtZC8bPYGHNUdNyqF3GHTVDp5hU4tSkLeoJVdRk",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmRMZNkCeKJ1njkTDvjGeoBoLch5BNmJXpckpHyrNyL6yq",
+    "name": "IX. Towards Computer-Aided Governance",
+  }
+  console.log("Uploading cad...")
+  const uploadedcad = await ipfs.add(JSON.stringify(cad))
+
+  console.log("Minting cad with IPFS hash ("+uploadedcad.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedcad.path,{gasLimit:10000000})
+
+
+  await sleep(delayMS)
+
+  const deterring = {
+    "description": "Deterring Adversarial Behavior at Scale in Gitcoin Grants presents a novel frame for community based algorithmic policy making. By Jeff Emmett, Kelsie Nabben, Danilo Lessa Bernadelli, and Michael Zargham.",
+    "external_url": "http://ipfs.io/ipfs/QmRsvpmEJ1ZjfoxuudT4a1v2XPswHR7tsSASq6ZQxMRLav",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/QmPqNGNWHzBrpZ1d3ybW1e26RY34Rv86hcLb6tgwtwTYPi",
+    "name": "X. Deterring Adversarial Behaviour",
+  }
+  console.log("Uploading deterring...")
+  const uploadeddeterring = await ipfs.add(JSON.stringify(deterring))
+
+  console.log("Minting deterring with IPFS hash ("+uploadeddeterring.path+")")
+  await yourCollectible.mintItem(toAddress,uploadeddeterring.path,{gasLimit:10000000})
+
+
+  await sleep(delayMS)
+
+  const terra = {
+    "description": "Terra Nullius concludes the Zine collection by applying our methodologies to ourselves and inviting readers to move from mapping to modelling by engaging with and applying the content presented. By Kelsie Nabben and Michael Zargham.",
+    "external_url": "http://ipfs.io/ipfs/QmdduMKUJVW5vbmW9mg1d2CjyUE9n4V7vnqLgZg5CSibV9",// <-- this can link to a page for the specific file too
+    "image": "http://ipfs.io/ipfs/Qmcq6pc3guaoZ4vKZQuwMZH69KeqpqUPzohavxEiGBtZrH",
+    "name": "000. Terra Nullius",
+  }
+  console.log("Uploading terra...")
+  const uploadedterra = await ipfs.add(JSON.stringify(terra))
+
+  console.log("Minting terra with IPFS hash ("+uploadedterra.path+")")
+  await yourCollectible.mintItem(toAddress,uploadedterra.path,{gasLimit:10000000})
+
+
 
 
 
@@ -212,8 +220,8 @@ const main = async () => {
   /*
 
 
-  console.log("Minting zebra...")
-  await yourCollectible.mintItem("0xD75b0609ed51307E13bae0F9394b5f63A7f8b6A1","zebra.jpg")
+  console.log("Minting techno...")
+  await yourCollectible.mintItem("0xD75b0609ed51307E13bae0F9394b5f63A7f8b6A1","techno.jpg")
 
   */
 
