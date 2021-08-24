@@ -17,7 +17,7 @@ const main = async () => {
   console.log("\n\n 🎫 Minting to "+toAddress+"...\n");
 
   const { deployer } = await getNamedAccounts();
-  const yourCollectible = await ethers.getContract("YourCollectible", deployer);
+  const ZineNFT = await ethers.getContract("Zine Collection", deployer);
 
   const preface = {
     "description": "Navigating Information Infrastructure introduces the Zine collection by outlining decentralised communities and infrastructure as a cartographic practice of simultaneously mapping and navigating a space that is constantly developing. By Kelsie Nabben and Michael Zargham.",
@@ -29,7 +29,7 @@ const main = async () => {
   const uploaded = await ipfs.add(JSON.stringify(preface))
 
   console.log("Minting preface with IPFS hash ("+uploaded.path+")")
-  await yourCollectible.mintItem(toAddress,uploaded.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x5BA02f4Ff6Af1d9d2Af8774D10fD32Eb57d4E2E6",uploaded.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
@@ -45,7 +45,7 @@ const main = async () => {
   const uploadedtechno = await ipfs.add(JSON.stringify(techno))
 
   console.log("Minting techno with IPFS hash ("+uploadedtechno.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedtechno.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x5BA02f4Ff6Af1d9d2Af8774D10fD32Eb57d4E2E6",uploadedtechno.path,{gasLimit:10000000})
 
 
 
@@ -62,7 +62,7 @@ const main = async () => {
   const uploadedalgorithms = await ipfs.add(JSON.stringify(algorithms))
 
   console.log("Minting algorithms with IPFS hash ("+uploadedalgorithms.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedalgorithms.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x2a6d80D390a4E2651f375A7a3aF78C5F558b9740",uploadedalgorithms.path,{gasLimit:10000000})
 
 
 
@@ -79,7 +79,7 @@ const main = async () => {
   const uploadedethics = await ipfs.add(JSON.stringify(ethics))
 
   console.log("Minting ethics with IPFS hash ("+uploadedethics.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedethics.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x6868738d8E1E38E4bD2EB601262453D626D9648c",uploadedethics.path,{gasLimit:10000000})
 
 
 
@@ -96,7 +96,7 @@ const main = async () => {
   const uploadeddecentralisedInfo = await ipfs.add(JSON.stringify(decentralisedInfo))
 
   console.log("Minting decentralisedInfo with IPFS hash ("+uploadeddecentralisedInfo.path+")")
-  await yourCollectible.mintItem(toAddress,uploadeddecentralisedInfo.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0xF5535D4B271edC5E35dADC460385FE44F286Ab8e",uploadeddecentralisedInfo.path,{gasLimit:10000000})
 
 
 
@@ -112,7 +112,7 @@ const main = async () => {
   const uploadedadhoc = await ipfs.add(JSON.stringify(adhoc))
 
   console.log("Minting adhoc with IPFS hash ("+uploadedadhoc.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedadhoc.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x2945B24ee5e12914e4c3FEc462e9409d792C3EBe",uploadedadhoc.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
@@ -127,7 +127,7 @@ const main = async () => {
   const uploadedgames = await ipfs.add(JSON.stringify(games))
 
   console.log("Minting games with IPFS hash ("+uploadedgames.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedgames.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0xf6Ce0526E8ee666441B7F5F0eBB78704f4C09746",uploadedgames.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
@@ -142,7 +142,7 @@ const main = async () => {
   const uploadeddaos = await ipfs.add(JSON.stringify(daos))
 
   console.log("Minting daos with IPFS hash ("+uploadeddaos.path+")")
-  await yourCollectible.mintItem(toAddress,uploadeddaos.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x397b2dA916Fd53d1db9758c65972c60a2c037d78",uploadeddaos.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
@@ -157,7 +157,7 @@ const main = async () => {
   const uploadedostrom = await ipfs.add(JSON.stringify(ostrom))
 
   console.log("Minting ostrom with IPFS hash ("+uploadedostrom.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedostrom.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x8110d1D04ac316fdCACe8f24fD60C86b810AB15A",uploadedostrom.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
@@ -172,7 +172,7 @@ const main = async () => {
   const uploadedcad = await ipfs.add(JSON.stringify(cad))
 
   console.log("Minting cad with IPFS hash ("+uploadedcad.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedcad.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0xde21F729137C5Af1b01d73aF1dC21eFfa2B8a0d6",uploadedcad.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
@@ -187,7 +187,7 @@ const main = async () => {
   const uploadeddeterring = await ipfs.add(JSON.stringify(deterring))
 
   console.log("Minting deterring with IPFS hash ("+uploadeddeterring.path+")")
-  await yourCollectible.mintItem(toAddress,uploadeddeterring.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0xD4567069C5a1c1fc8261d8Ff5C0B1d98f069Cf47",uploadeddeterring.path,{gasLimit:10000000})
 
 
   await sleep(delayMS)
@@ -202,7 +202,7 @@ const main = async () => {
   const uploadedterra = await ipfs.add(JSON.stringify(terra))
 
   console.log("Minting terra with IPFS hash ("+uploadedterra.path+")")
-  await yourCollectible.mintItem(toAddress,uploadedterra.path,{gasLimit:10000000})
+  await ZineNFT.mintItem("0x5BA02f4Ff6Af1d9d2Af8774D10fD32Eb57d4E2E6",uploadedterra.path,{gasLimit:10000000})
 
 
 
@@ -211,9 +211,9 @@ const main = async () => {
 
   //await sleep(delayMS)
 
-  // console.log("Transferring Ownership of YourCollectible to "+toAddress+"...")
+  // console.log("Transferring Ownership of ZineNFT to "+toAddress+"...")
 
-  // await yourCollectible.transferOwnership(toAddress)
+  // await ZineNFT.transferOwnership(toAddress)
 
   // await sleep(delayMS)
 
@@ -221,7 +221,7 @@ const main = async () => {
 
 
   console.log("Minting techno...")
-  await yourCollectible.mintItem("0xD75b0609ed51307E13bae0F9394b5f63A7f8b6A1","techno.jpg")
+  await ZineNFT.mintItem("0xD75b0609ed51307E13bae0F9394b5f63A7f8b6A1","techno.jpg")
 
   */
 
