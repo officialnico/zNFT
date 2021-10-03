@@ -13,9 +13,21 @@ contract YourCollectible is ERC721, Ownable {
 
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
+  string _contractURI;
 
-  constructor() public ERC721("Zine Collection", "ZINE") {
-    _setBaseURI("https://ipfs.io/ipfs/");
+  constructor() public ERC721("ZINE: Navigating Information Infrastructure", "ZINE") {
+    _setBaseURI("https://ipfs.io/ipfs/"); //create NFT
+  }
+
+  function contractURI() public view returns (string memory) {
+      return _contractURI;
+  }
+
+  function setContractURI(string memory _uri) 
+      public
+      onlyOwner()
+  {
+      _contractURI = _uri;
   }
 
   function mintItem(address to, string memory tokenURI)
@@ -31,5 +43,6 @@ contract YourCollectible is ERC721, Ownable {
 
       return id;
   }
+
   
 }

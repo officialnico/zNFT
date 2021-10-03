@@ -9,17 +9,17 @@ describe("My Dapp", function () {
 
   describe("YourContract", function () {
     it("Should deploy YourContract", async function () {
-      const YourContract = await ethers.getContractFactory("YourContract");
+      const YourContract = await ethers.getContractFactory("YourCollectible");
 
       myContract = await YourContract.deploy();
     });
 
     describe("setPurpose()", function () {
-      it("Should be able to set a new purpose", async function () {
-        const newPurpose = "Test Purpose";
+      it("Should be able to set a new contract URI", async function () {
+        const newPurpose = "https://example.com";
 
-        await myContract.setPurpose(newPurpose);
-        expect(await myContract.purpose()).to.equal(newPurpose);
+        await myContract.setContractURI(newPurpose);
+        expect(await myContract.contractURI()).to.equal(newPurpose);
       });
     });
   });
