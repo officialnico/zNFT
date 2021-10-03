@@ -105,7 +105,7 @@ const main = async () => {
     external_url:
       "http://ipfs.io/ipfs/QmPEAgfmET4DuZ9ByApZQQUX8fovMytXFU9Y57MZtAcFe2", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmUqn48onXHoPEcoGAXxk3cbsQjdWbnqPCVPiedpkSWpKs",
-    name: "IV. Decentralised Information Infrastructure",
+    name: "IV. An Ethnography of Decentralised Information Infrastructure",
   };
   console.log("Uploading decentralisedInfo...");
   const uploadeddecentralisedInfo = await ipfs.add(
