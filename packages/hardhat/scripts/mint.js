@@ -260,7 +260,7 @@ const main = async () => {
 
   console.log("Minting terra with IPFS hash (" + uploadedterra.path + ")");
   await ZineNFT.mintItem(
-    "0x5BA02f4Ff6Af1d9d2Af8774D10fD32Eb57d4E2E6",
+    "0xDF290293C4A4d6eBe38Fd7085d7721041f927E0a",
     uploadedterra.path,
     { gasLimit: 10000000 }
   );
@@ -284,6 +284,7 @@ const main = async () => {
   console.log("Setting contract data (" + uploadeddata.path + ")");
   await ZineNFT.setContractURI(uploadeddata.path, { gasLimit: 10000000 });
 
+  await ZineNFT.renounceOwnership();
   //await sleep(delayMS)
 
   // console.log("Transferring Ownership of ZineNFT to "+toAddress+"...")
