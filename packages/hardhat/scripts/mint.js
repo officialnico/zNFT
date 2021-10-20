@@ -6,7 +6,7 @@ const { utils } = require("ethers");
 const R = require("ramda");
 const ipfsAPI = require("ipfs-http-client");
 const ipfs = ipfsAPI({
-  host: "ipfs.infura.io",
+  host: "ipfs..io",
   port: "5001",
   protocol: "https",
 });
@@ -19,12 +19,15 @@ const main = async () => {
 
   const preface = {
     description:
-      "Navigating Information Infrastructure introduces the Zine collection by outlining decentralised communities and infrastructure as a cartographic practice of simultaneously mapping and navigating a space that is constantly developing. By Kelsie Nabben and Michael Zargham.",
+      '*"The scaffolding of Cyberspace is infrastructure which provides the foundation for the essential services which govern and serve society."*\
+      \
+      [Navigating Information Infrastructure](http://ipfs.io/ipfs/QmfCsS4ARcHm4B55Yk52stSztRUubztgjTG1RSdxQeMDTr) introduces the Zine collection by outlining decentralised communities and infrastructure as a cartographic practice of simultaneously mapping and navigating a space that is constantly developing. By Kelsie Nabben and Michael Zargham.',
     external_url:
       "http://ipfs.io/ipfs/QmfCsS4ARcHm4B55Yk52stSztRUubztgjTG1RSdxQeMDTr", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmfWz1DtbS5a6BB9sNee6W84fieNktKFhKKwLzGV2VYSzj",
     name: "00. Navigating Information Infrastructure.",
   };
+
   console.log("Uploading preface...");
   const uploaded = await ipfs.add(JSON.stringify(preface));
 
@@ -39,7 +42,9 @@ const main = async () => {
 
   const techno = {
     description:
-      "Techno-reflexivity presents a creative methodology for software developer un-bias, by employing the ethnographic technique of reflexivity. By Kelsie Nabben and Michael Zargham.",
+      '*"Techno-reflexivity, as awareness of how one’s own ontological framework is projected in their work, is especially pertinent to automated infrastructures."*\
+      \
+      [Techno-reflexivity](http://ipfs.io/ipfs/QmZNnXCxwodk5WSAuTbZGKCg75pY5CGxsVaB7TsgjFRRvy) presents a creative methodology for software developer un-bias, by employing the ethnographic technique of reflexivity. By Kelsie Nabben and Michael Zargham.',
     external_url:
       "http://ipfs.io/ipfs/QmZNnXCxwodk5WSAuTbZGKCg75pY5CGxsVaB7TsgjFRRvy", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmW5VwKVKpwhi3V9Mhz6eXH54LW4zDT7MKJyd5hw8Sj8A2",
@@ -59,7 +64,9 @@ const main = async () => {
 
   const algorithms = {
     description:
-      "Algorithms as Policy investigates how algorithm design can be reconceptualized as policy-making to create safer digital infrastructures. By Michael Zargham and Kelsie Nabben.",
+      '*"It is incumbent upon software engineers to consider algorithm design work with the awareness that should be associated with policy-making related to the burden of responsibility to the ‘public good’."\
+      \
+        [Algorithms as Policy](http://ipfs.io/ipfs/QmZzbModrM4vouB6FHu5QtBhE4H2KJwAg3Dcxz8fBN65mL) investigates how algorithm design can be reconceptualized as policy-making to create safer digital infrastructures. By Michael Zargham and Kelsie Nabben.',
     external_url:
       "http://ipfs.io/ipfs/QmZzbModrM4vouB6FHu5QtBhE4H2KJwAg3Dcxz8fBN65mL", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmervY1cScWQ5uUTs9YS2Fn3fpF7ainiNzYXbjLbNQmCxB",
@@ -81,7 +88,9 @@ const main = async () => {
 
   const ethics = {
     description:
-      "Engineering Ethics inspects ethics as the core mission and motivation of participation in Web3 and token engineering commons. By Michael Zargham. ",
+      '*"The ethical engineer is one who is competent, responsible, and respectful of Cicero’s Creed II. Cicero’s Creed, engineering’s oldest ethic, directed engineers to place the safety of the public above all else."* - Cambridge University Press, 1997\
+      \
+      [Engineering Ethics in Web3](http://ipfs.io/ipfs/QmXDKmHRNCSDrSo1FznjAxV7B9xjPSVew7qG8xqQr37akp) inspects ethics as the core mission and motivation of participation in Web3 and token engineering commons. By Michael Zargham.',
     external_url:
       "http://ipfs.io/ipfs/QmXDKmHRNCSDrSo1FznjAxV7B9xjPSVew7qG8xqQr37akp", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmamUPwxWobGJngyEVCUYznCo7bhsaH1zT7DgJX78aKv9X",
@@ -101,7 +110,9 @@ const main = async () => {
 
   const decentralisedInfo = {
     description:
-      "An Ethnography of Decentralised Information Infrastructure is a historical investigation of cypherpunk nomenclature to create a genealogy and categorise the unique attributes of decentralised technologies. By Kelsie Nabben.",
+      '*"Decentralised information infrastructure is a rapidly developing sub-set of information systems infrastructure which deserves ethnographic attention to inspect the hard questions about the opportunities and implications of different architectures of digital tools in society."*\
+      \
+      [An Ethnography of Decentralised Information Infrastructure](http://ipfs.io/ipfs/QmPEAgfmET4DuZ9ByApZQQUX8fovMytXFU9Y57MZtAcFe2) is a historical investigation of cypherpunk nomenclature to create a genealogy and categorise the unique attributes of decentralised technologies. By Kelsie Nabben.',
     external_url:
       "http://ipfs.io/ipfs/QmPEAgfmET4DuZ9ByApZQQUX8fovMytXFU9Y57MZtAcFe2", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmUqn48onXHoPEcoGAXxk3cbsQjdWbnqPCVPiedpkSWpKs",
@@ -127,7 +138,9 @@ const main = async () => {
 
   const adhoc = {
     description:
-      "The Possibilities of '“Ad Hoc” Decentralised Digital Infrastructure' investigates decentralised technologies as enablers of new types of peer-to-peer networks with novel implications for how people coordinate. By Kelsie Nabben.!",
+      '*"“Ad hoc” decentralised digital infrastructure’ enables self-organisation and coordination for actors in a network through publicly available, decentralised digital tools. The hope of advocates is that decentralised digital technologies can provide more resilient infrastructure for society."*\
+      \
+      [The Possibilities of “Ad Hoc” Decentralised Digital Infrastructure](http://ipfs.io/ipfs/QmSzGDwSsHU3CK36YFf9GaapPVRGThzkDQoZT2npUZ4hQ8) investigates decentralised technologies as enablers of new types of peer-to-peer networks with novel implications for how people coordinate. By Kelsie Nabben.',
     external_url:
       "http://ipfs.io/ipfs/QmSzGDwSsHU3CK36YFf9GaapPVRGThzkDQoZT2npUZ4hQ8", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmXososJejizo8dPcwCNZNbJ9JpwouW6vY5RqrnxyYmmAD",
@@ -147,7 +160,9 @@ const main = async () => {
 
   const games = {
     description:
-      "Network Formation Games is a study of coordination games in algorthmic systems.  By Michael Zargham.",
+      '*"Network science uses formal mathematical representations of networks in order to combined formal theory with observed behavior."*\
+      \
+      [Network Formation Games](http://ipfs.io/ipfs/QmXEKwBMBiJ6WUEqWNBman28UFe3qvn2db3hYa8B2kFeBR) is a study of coordination games in algorthmic systems.  By Michael Zargham.',
     external_url:
       "http://ipfs.io/ipfs/QmXEKwBMBiJ6WUEqWNBman28UFe3qvn2db3hYa8B2kFeBR", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmP3KW2NpixaPvmACZTwuknERckCwqjoL1bPqxYzDFQgaE",
@@ -167,7 +182,9 @@ const main = async () => {
 
   const daos = {
     description:
-      "Exploring DAOs as a New Kind of Institution with the Metagovernance project and Commons Stack. By Michael Zargham, Primavera de Fillipi, Joshua Tan, and Jeff Emmett in 2020.",
+      '*"Institutions are defined as stable patterns for regulating human behavior."*\
+      \
+      [Exploring DAOs as a New Kind of Institution](http://ipfs.io/ipfs/QmZbP2v7iTroUfE84exWBAmMEQSiAtVADmPEAuxSjm5PmE) with the Metagovernance project and Commons Stack. By Michael Zargham, Primavera de Fillipi, Joshua Tan, and Jeff Emmett in 2020.',
     external_url:
       "http://ipfs.io/ipfs/QmZbP2v7iTroUfE84exWBAmMEQSiAtVADmPEAuxSjm5PmE", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmcFYiB2t5bX81dy9dLg2XjtNSYEoB94S5pD43sPSPb7R1",
@@ -187,7 +204,9 @@ const main = async () => {
 
   const ostrom = {
     description:
-      "Automating Ostrom for Effective DAO Management provides comparatively early contributions on decentralised technologies as 'commons' and designing cyber-physical commons to be ‘Ostrom Compliant’ by applying Ostrom principles. By Jeff Emmett and Michael Zargham in 2019.\n\nhttp://ipfs.io/ipfs/QmTEVh19FKmpSk3hcmiWZbXxE657Ht1VBR2brTNSBzR1im",
+      '*"We look forward to a future in which we can increasingly ‘automate Ostrom’ to facilitate the application of these principles by communities"*\
+      \
+      [Automating Ostrom for Effective DAO Management](http://ipfs.io/ipfs/QmZkaSbgYqUHuMsMtzdzDwQ5KuEyeanDwBbFWAEw72vNPy) provides comparatively early contributions on decentralised technologies as "commons" and designing cyber-physical commons to be ‘Ostrom Compliant’ by applying Ostrom principles. By Jeff Emmett and Michael Zargham in 2019.',
     external_url:
       "http://ipfs.io/ipfs/QmZkaSbgYqUHuMsMtzdzDwQ5KuEyeanDwBbFWAEw72vNPy", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmWV328ADJTUiktdeU2yfQp2qeVayHhTHRR1msTCgeDzqk",
@@ -207,7 +226,9 @@ const main = async () => {
 
   const cad = {
     description:
-      "Towards Computer-Aided Governance applies computer-aided governance approaches to a case study on Gitcoin grants. By Michael Zargham, Danilo Lessa Bernardinelli, and Jeff Emmett.\n\nhttp://ipfs.io/ipfs/QmZP3rSNtZC8bPYGHNUdNyqF3GHTVDp5hU4tSkLeoJVdRk",
+      '*"Using applied complex systems engineering, we are investigating the design of data-driven policy tools that can better sense and respond to the needs of a network."*\
+      \
+      [Towards Computer-Aided Governance of Gitcoin Grants](http://ipfs.io/ipfs/QmZAkhYgzZeYUjrCXDjy1q8rnXmwFk7x1A75KzZevRm76o) applies computer-aided governance approaches to a case study on Gitcoin grants. By Michael Zargham, Danilo Lessa Bernardinelli, and Jeff Emmett.',
     external_url:
       "http://ipfs.io/ipfs/QmZAkhYgzZeYUjrCXDjy1q8rnXmwFk7x1A75KzZevRm76o", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmRMZNkCeKJ1njkTDvjGeoBoLch5BNmJXpckpHyrNyL6yq",
@@ -227,7 +248,9 @@ const main = async () => {
 
   const deterring = {
     description:
-      "Deterring Adversarial Behavior at Scale in Gitcoin Grants presents a novel frame for community based algorithmic policy making. By Jeff Emmett, Kelsie Nabben, Danilo Lessa Bernadelli, and Michael Zargham.\n\nhttp://ipfs.io/ipfs/QmRsvpmEJ1ZjfoxuudT4a1v2XPswHR7tsSASq6ZQxMRLav",
+      '*"The 4-step framework introduced is an iterative approach to increasing the sophistication of detection and mitigation of unwanted behaviors."*\
+      \
+      [Deterring Adversarial Behavior at Scale in Gitcoin Grants](http://ipfs.io/ipfs/QmTvMsxSWv3EFqsWPxL8eTWxjVzGoBhAYNwNkpRs3fPBjM) presents a novel frame for community based algorithmic policy making. By Jeff Emmett, Kelsie Nabben, Danilo Lessa Bernadelli, and Michael Zargham.',
     external_url:
       "http://ipfs.io/ipfs/QmTvMsxSWv3EFqsWPxL8eTWxjVzGoBhAYNwNkpRs3fPBjM", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/QmPqNGNWHzBrpZ1d3ybW1e26RY34Rv86hcLb6tgwtwTYPi",
@@ -249,7 +272,9 @@ const main = async () => {
 
   const terra = {
     description:
-      "Terra Nullius concludes the Zine collection by applying our methodologies to ourselves and inviting readers to move from mapping to modelling by engaging with and applying the content presented. By Kelsie Nabben and Michael Zargham.\n\nhttp://ipfs.io/ipfs/QmdduMKUJVW5vbmW9mg1d2CjyUE9n4V7vnqLgZg5CSibV9",
+      '*"In exploring the various layers of these complex, multi-scale systems we have constantly related the technical, such as algorithms, to the human, such as policies."*\
+      \
+      [Terra Nullius](http://ipfs.io/ipfs/QmWQQizQT8wfzkm71RybzKDrWuFyky6npfwxgcy8V6pMyf) concludes the Zine collection by applying our methodologies to ourselves and inviting readers to move from mapping to modelling by engaging with and applying the content presented. By Kelsie Nabben and Michael Zargham.',
     external_url:
       "http://ipfs.io/ipfs/QmWQQizQT8wfzkm71RybzKDrWuFyky6npfwxgcy8V6pMyf", // <-- this can link to a page for the specific file too
     image: "http://ipfs.io/ipfs/Qmcq6pc3guaoZ4vKZQuwMZH69KeqpqUPzohavxEiGBtZrH",
