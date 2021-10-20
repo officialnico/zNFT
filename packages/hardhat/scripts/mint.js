@@ -11,7 +11,7 @@ const ipfs = ipfsAPI({
   protocol: "https",
 });
 
-const delayMS = 1000; //sometimes xDAI needs a 6000ms break lol 😅
+const delayMS = 6000; //sometimes xDAI needs a 6000ms break lol 😅
 
 const main = async () => {
   const { deployer } = await getNamedAccounts();
