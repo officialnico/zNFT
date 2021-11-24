@@ -10,5 +10,5 @@ send eth to this account on rinkeby
 ```
 and then do this
 yarn deploy --network rinkeby
-yarn mint 
+yarn mint --network rinkeby
 ```
