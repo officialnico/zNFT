@@ -6,7 +6,7 @@ const { utils } = require("ethers");
 const R = require("ramda");
 const ipfsAPI = require("ipfs-http-client");
 const ipfs = ipfsAPI({
-  host: "ipfs..io",
+  host: "ipfs.infura.io",
   port: "5001",
   protocol: "https",
 });
@@ -309,7 +309,8 @@ const main = async () => {
   console.log("Setting contract data (" + uploadeddata.path + ")");
   await ZineNFT.setContractURI(uploadeddata.path, { gasLimit: 10000000 });
 
-  await ZineNFT.renounceOwnership();
+  // ---------------------------------------
+
   //await sleep(delayMS)
 
   // console.log("Transferring Ownership of ZineNFT to "+toAddress+"...")
